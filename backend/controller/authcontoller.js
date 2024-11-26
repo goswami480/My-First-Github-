@@ -23,6 +23,11 @@ const add=async(req,res)=>{
             console.log("Invalid email format:", email);
             return res.status(400).json({ message: "Invalid email format" });
           }
+          const phoneRegex = /^[0-9]{10}$/; // Regular expression for exactly 10 digits
+
+          if (!phoneRegex.test(phone)) {
+            return res.status(400).json({ message: 'Phone number must be 10 digits' })
+          }
         const hashedPassword = await hashedpassword(password); 
         console.log("Hashed Password:", hashedPassword);
         const user=new User({
@@ -41,6 +46,7 @@ const add=async(req,res)=>{
         console.error("Error during user creation:", err);
         res.status(500).send(err)
     }
+
 
 }
 module.exports = add

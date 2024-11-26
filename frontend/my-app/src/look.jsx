@@ -46,7 +46,7 @@ const SignupForm = () => {
   return (
   <>
    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-   <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>User Management</h2>
+   <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>User Management</h1>
    <Container maxWidth="sm">
       <Box
         sx={{
