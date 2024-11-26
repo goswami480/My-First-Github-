@@ -12,7 +12,14 @@ const add=async(req,res)=>{
         if(!name || !email || !password || !address || !password){
             return res.status(400).json({message:"Please fill all the fields"})
         }
-        const validemail=await regexemail(email)
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+          // If a user with this email exists, return an error
+          return res.status(400).json({ message: 'Email already exists' });
+        }
+    
+            const validemail=await regexemail(email)
         if (!validemail) {
             console.log("Invalid email format:", email);
             return res.status(400).json({ message: "Invalid email format" });
