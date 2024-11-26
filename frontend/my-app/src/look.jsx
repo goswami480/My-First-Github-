@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Box, Typography, Container, Grid } from "@mui/material";
 import axios from "axios";
+import './look.css'
 
 
 const SignupForm = () => {
@@ -60,7 +61,7 @@ const SignupForm = () => {
         }}
       >
         <Typography variant="h4" gutterBottom sx={{ fontWeight: "600", color: "#333" }}>
-          Sign Up
+        Add User    
         </Typography>
 
         {message && (
@@ -160,7 +161,7 @@ const SignupForm = () => {
                 }}
                 disabled={loading}
               >
-                {loading ? "Submitting..." : "Sign Up"}
+                {loading ? "Submitting..." : "Add USer"}
               </Button>
             </Grid>
           </Grid>

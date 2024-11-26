@@ -1,0 +1,16 @@
+.first i have install the react
+
+.second install the axios to integrate with the api
+
+.third install the react-router-dom to navigate between the pages
+
+.fourth install the react-hook-form to handle the form validation
+
+.fifth in the src folder of the my-app i am make the file named look.js in which all the validation and the add user form created and in this file i am use the useState to handle the data and i am using the useEffect hook for call the adduser api to add the user in the database
+
+.sixth i am make the file named finduser.js in which the user find specifically through the mail like search to someone information then we can do that through the mail and we get all the information of the user.
+
+.seventh i am make the file named navbar.js in which we get the data in the table through the api  and handle the edit the user and the delete the user with the api and hanle the pagination .
+
+To Run the project 
+

@@ -8,7 +8,7 @@ export default function Navbar() {
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3; // Number of items per page
+  const itemsPerPage = 3; // numbers of user per page
 
   useEffect(() => {
     axios

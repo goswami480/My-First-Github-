@@ -13,11 +13,16 @@ am defines the routes for the different-2 usage.
 .Sixth i am make the auth service named file in which am make the function of the hashedpassword for the bcrypt password
 and regex for the email and 
 
-.Seventh am make the model folder in which am make the file for the User.js in which am define the model or schema for the user
+.Seventh am make the model folder in which am make the file fxor the User.js in which am define the model or schema for the user
 
 .Eigth is index file the main file of the backend in which am define the port for the listening the app
 on which the backend is running
 
 .In the controller folder am make the api for the add the user in the authcontroller.js in which am use the bcrypt fucntion for the security,
+
 the second file is getoneuser through which am get the specific user, and the third file is list.js through which the we get all the user list ,
-and the fourth file is update.js through which we update the user details and the fifth file is delete.js through which we delete the specific user
+
+and the fourth file is update.js through which we update the user details and the fifth file is delete.js through which we delete the specific user.
+
+.To run the node.js go to the terminal of the vs code and change directory into backend (cd backend) and then run the command node index.js
+now your project is running

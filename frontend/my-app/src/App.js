@@ -1,5 +1,6 @@
 import SignupForm from './look';
-
+import './App.css';
+import FindUser from './finduser'
 import Navbar from './navbar';
 
 
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
      
       <SignupForm/>
+      <FindUser/>
       <Navbar/>
 
     </div>
