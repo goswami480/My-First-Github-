@@ -20,7 +20,7 @@ function App() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/add-user">ADD USER</Link>
+                  <Link className="nav-link active" aria-current="page" to="/">ADD USER</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/search">SEARCH</Link>
@@ -35,7 +35,7 @@ function App() {
 
         {/* Define routes for different components */}
         <Routes>
-          <Route path="/add-user" element={<SignupForm />} />
+          <Route path="/" element={<SignupForm />} />
           <Route path="/search" element={<FindUser />} />
           <Route path="/listing" element={<Navbar />} />
         </Routes>

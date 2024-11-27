@@ -29,6 +29,7 @@ const SignupForm = () => {
     try {
       const response = await axios.post("http://localhost:3000/signup", formData);
       setMessage(response.data.message);
+      window.location.reload()
       setFormData({
         name: "",
         email: "",

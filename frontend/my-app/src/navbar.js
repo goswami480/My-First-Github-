@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './navbar.css'
 
 export default function Navbar() {
   const [data, setData] = useState([]);
-  const [editUser, setEditUser] = useState(null);
+  const [editUser, setEditUser] = useState(null); // This will hold the user to be edited
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3; // numbers of user per page
+  const itemsPerPage = 5; // number of users per page
 
   useEffect(() => {
     axios
@@ -31,39 +32,49 @@ export default function Navbar() {
 
   const handleEdit = (id) => {
     const userToEdit = data.find((item) => item._id === id);
-    setEditUser(userToEdit);
-    setIsModalOpen(true);
+    setEditUser(userToEdit); // Set the user to be edited
+    setIsModalOpen(true); // Open the modal
   };
-
   const handleSaveEdit = () => {
     if (editUser) {
+      // Send the updated user data to the backend
       axios
         .put(`http://localhost:3000/updateuser/${editUser._id}`, editUser)
         .then((response) => {
-          console.log('User updated successfully');
-          const updatedData = data.map((item) =>
-            item._id === editUser._id ? response.data : item
-          );
-          setData(updatedData);
-          setIsModalOpen(false);
+          console.log('User updated successfully', response.data);
+  
+          // Refresh the page after the update is successful
+          window.location.reload();  // This will reload the page and fetch the updated data
+  
+          setIsModalOpen(false);  // Close the modal after saving
         })
         .catch((error) => {
           console.error('There was an error updating the user!', error);
         });
     }
   };
-
+  
+  
   const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:3000/deleteuser/${id}`)
-      .then((response) => {
-        console.log('User deleted:', response.data);
-        setData(data.filter((user) => user._id !== id));
-      })
-      .catch((error) => {
-        console.error('There was an error deleting the user!', error);
-        alert('An error occurred while deleting the user.');
-      });
+    // Display a confirmation dialog
+    const isConfirmed = window.confirm('Are you sure you want to delete this user?');
+
+    if (isConfirmed) {
+      axios
+        .delete(`http://localhost:3000/deleteuser/${id}`)
+        .then((response) => {
+          console.log('User deleted:', response.data);
+          // Update state by removing the deleted user from the data array
+          setData(data.filter((user) => user._id !== id));
+          alert('User deleted successfully');
+        })
+        .catch((error) => {
+          console.error('There was an error deleting the user!', error);
+          alert('An error occurred while deleting the user.');
+        });
+    } else {
+      console.log('User deletion canceled');
+    }
   };
 
   const handleChange = (e) => {
@@ -168,8 +179,8 @@ export default function Navbar() {
 
       {/* Modal for editing user */}
       {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="modal" style={{ display: 'flex', justifyContent: 'center' }}>
+          <div className="modal-content" style={{ padding: '20px', background: '#fff' }}>
             <h3>Edit User</h3>
             <label>Name:</label>
             <input
