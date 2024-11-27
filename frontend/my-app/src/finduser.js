@@ -8,7 +8,7 @@ function FindUser() {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/getuser/${email}`);  // Use params in URL
+      const response = await axios.get(`http://localhost:3000/getuser/${email}`); // Use params in URL
       setUser(response.data);
       setError(null);
     } catch (err) {
@@ -17,7 +17,10 @@ function FindUser() {
       setError(err.response?.data?.message || 'Error fetching user');
     }
   };
-  
+
+  const handleClose = () => {
+    setUser(null); // Reset the user details when close button is clicked
+  };
 
   return (
     <div
@@ -33,13 +36,14 @@ function FindUser() {
     >
       <div
         style={{
-          backgroundColor: ' cornflowerblue',
+          backgroundColor: 'cornflowerblue',
           padding: '20px',
           borderRadius: '8px',
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
           width: '100%',
           maxWidth: '400px',
           textAlign: 'center',
+          position: 'relative',
         }}
       >
         <h2 style={{ marginBottom: '20px' }}>Find User by Email</h2>
@@ -75,6 +79,22 @@ function FindUser() {
 
         {user && (
           <div style={{ marginTop: '20px' }}>
+           
+            <button
+              onClick={handleClose}
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                background: 'none',
+                border: 'none',
+                color: 'black',
+                fontSize: '30px',
+                cursor: 'pointer',
+              }}
+            >
+              &times; {/* Close button symbol */}
+            </button>
             <h3>User Details</h3>
             <p><strong>Name:</strong> {user.name}</p>
             <p><strong>Email:</strong> {user.email}</p>
@@ -90,3 +110,4 @@ function FindUser() {
 }
 
 export default FindUser;
+  

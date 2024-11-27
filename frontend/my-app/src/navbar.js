@@ -88,6 +88,7 @@ export default function Navbar() {
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
+  console.log(">>>>>",totalPages)
 
   const goToNextPage = () => {
     if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);

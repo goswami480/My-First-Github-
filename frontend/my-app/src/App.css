@@ -6,7 +6,7 @@
 }
 .navbar-nav {
   background-color: #4CAF50 !important; 
-  margin-left: 600px !important; /* Ensures it overrides Bootstrap's default styles */
+  margin-left: 640px !important; /* Ensures it overrides Bootstrap's default styles */
   display: flex; /* Ensures Flexbox layout is applied */
   padding-block-end:2px;
 }
