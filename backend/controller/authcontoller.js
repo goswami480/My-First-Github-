@@ -34,7 +34,7 @@ const add = async (req, res) => {
         // Validate the password using the regexpassword function
         const validPassword = await regexpassword(password);
         if (!validPassword) {
-            return res.status(400).json({ message: "Password must be at least one capital letter, one special character, and one number" });
+            return res.status(400).json({ message: "Password must be 8 digit at least one capital letter, one special character, and one number" });
         }
 
         // Hash the password after validation
