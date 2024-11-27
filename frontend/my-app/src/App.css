@@ -1,3 +1,17 @@
-/* *{
-  background-color:cornflowerblue;
-} */
+.navbar {
+  background-color: #a4efa6 !important; /* Custom navbar background */
+}
+.nav-link {
+  color:black !important; /* Change link text color */
+}
+.navbar-nav {
+  background-color: #4CAF50 !important; 
+  margin-left: 600px !important; /* Ensures it overrides Bootstrap's default styles */
+  display: flex; /* Ensures Flexbox layout is applied */
+  padding-block-end:2px;
+}
+
+.nav-item {
+  margin-right: 10px; /* Adds spacing between items */
+}
+

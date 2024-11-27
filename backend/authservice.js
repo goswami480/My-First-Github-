@@ -12,12 +12,18 @@ async function comparepassword(password,hasdhedpassword){
 }
 
     async function regexemail(email){
-        const regexemailemail = /^[a-zA-Z0-9._%+-]+@(?:gmail\.com|yahoo\.com)$/
-        return regexemailemail.test(email)
+        const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return regexEmail.test(email)
     }
+    async function regexpassword(password) {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+        return passwordRegex.test(password);
+      }
+      
 
 module.exports={
     hashedpassword,
     comparepassword,
-    regexemail
+    regexemail,
+    regexpassword
 }
