@@ -8,6 +8,8 @@ const getone=require("../controller/getoneuser")
 const update=require("../controller/update")
 const cut=require("../controller/delete")
 
+
+
 router.post("/signup",add)
 router.post("/login",login)
 router.get("/allusers",get)

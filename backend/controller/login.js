@@ -1,13 +1,14 @@
 const express=require("express")
 const{ hasdhedpassword,comparepassword,regexemail}=require('../authservice')
-const User=require('../model/user')
+const SignUser=require('../model/signup')
 const jwt=require('jsonwebtoken')
+
 
   const login=async(req,res)=>{
     try{
         const {email,password}=req.body
         console.log("Request body",req.body)
-        const user=await User.findOne({email})
+        const user=await SignUser.findOne({email})
         console.log(user)
         if(!user) return res.status(400).json({message:"Invalid email or password"})
             const isMatch=await comparepassword(password,user.password)

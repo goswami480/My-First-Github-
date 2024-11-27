@@ -4,7 +4,7 @@ import axios from "axios";
 import './look.css'
 
 
-const SignupForm = () => {
+const AddUser = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -175,4 +175,4 @@ const SignupForm = () => {
  );
 };
 
-export default SignupForm;
+export default AddUser;

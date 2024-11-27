@@ -66,7 +66,7 @@ export default function Navbar() {
           console.log('User deleted:', response.data);
           // Update state by removing the deleted user from the data array
           setData(data.filter((user) => user._id !== id));
-          alert('User deleted successfully');
+          
         })
         .catch((error) => {
           console.error('There was an error deleting the user!', error);
