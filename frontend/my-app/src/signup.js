@@ -58,20 +58,7 @@ const Signup = () => {
         }));
       }
     }
-    if (name === "phone") {
-      if (!phoneRegex.test(value)) {
-        setError((prevState) => ({
-          ...prevState,
-          phone:
-            "phone must be 10 digits.",
-        }));
-      } else {
-        setError((prevState) => ({
-          ...prevState,
-          phone: "",
-        }));
-      }
-    }
+    
 
     if (name === "confirmPassword") {
       if (value !== formData.password) {
@@ -195,34 +182,6 @@ const Signup = () => {
               required
             />
             {error.confirmPassword && <p className="text-danger">{error.confirmPassword}</p>}
-          </div>
-          <div className="form-group mb-3">
-            <label htmlFor="password" className="form-label">Phone</label>
-            <input
-              type="phone"
-              id="phone"
-              name="phone"
-              className="form-control"
-              placeholder="Enter your password"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-            {error.phone && <p className="text-danger">{error.phone}</p>}
-          </div>
-          <div className="form-group mb-3">
-            <label htmlFor="address" className="form-label">Address</label>
-            <input
-              type="address"
-              id="address"
-              name="address"
-              className="form-control"
-              placeholder="Enter your address"
-              value={formData.address}
-              onChange={handleChange}
-              required
-            />
-           
           </div>
 
           {error.general && <p className="text-danger text-center">{error.general}</p>}
