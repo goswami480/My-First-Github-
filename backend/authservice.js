@@ -6,8 +6,8 @@ async function hashedpassword(password){
   return hashed;
 }
 
-async function comparepassword(password,hasdhedpassword){
-    const data= bcrypt.compare(password,hasdhedpassword)
+async function comparepassword(plaintextPassword,password,hasdhedpassword){
+    const data= bcrypt.compare(plaintextPassword,password,hasdhedpassword)
     return data
 }
 

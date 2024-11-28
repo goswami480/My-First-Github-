@@ -18,6 +18,10 @@ const signupSchema = new mongoose.Schema({
   confirmpassword:{
     type: String,
     
+  },
+  role:{
+    type:String,
+    default:"user"
   }
  
 },{ timestamps: true });

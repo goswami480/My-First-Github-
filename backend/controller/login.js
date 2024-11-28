@@ -1,6 +1,6 @@
 const express=require("express")
 const{ hasdhedpassword,comparepassword,regexemail}=require('../authservice')
- const SignUser=require('../model/signup')
+ const User=require('../model/signup')
 const jwt=require('jsonwebtoken')
 
 
@@ -8,14 +8,15 @@ const jwt=require('jsonwebtoken')
     try{
         const {email,password}=req.body
         console.log("Request body",req.body)
-        const user=await SignUser.findOne({email})
+        const user=await User.findOne({email})
         console.log(user)
         if(!user) return res.status(400).json({message:"Invalid email or password"})
             const isMatch=await comparepassword(password,user.password)
         console.log("isMatch",isMatch)
             if(!isMatch) return res.status(400).json({message:"Invalid email or password"})
                 const token=jwt.sign({
-            id:user._id
+            id:user._id,
+            role:user.role
         },"secretkeyappearshere",
         {expiresIn:"1h"});
         console.log("generated token",token)
