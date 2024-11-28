@@ -7,9 +7,9 @@ const get=require('../controller/list')
 const getone=require("../controller/getoneuser")
 const update=require("../controller/update")
 const cut=require("../controller/delete")
+const adduser=require("../controller/signup")
 
-
-
+router.post("/add",adduser)
 router.post("/signup",add)
 router.post("/login",login)
 router.get("/allusers",get)

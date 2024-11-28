@@ -1,6 +1,6 @@
 const express=require("express")
 const{ hasdhedpassword,comparepassword,regexemail}=require('../authservice')
-// const SignUser=require('../model/signup')
+ const SignUser=require('../model/signup')
 const jwt=require('jsonwebtoken')
 
 

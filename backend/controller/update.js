@@ -16,6 +16,10 @@ const update=async(req,res)=>{
         return res.status(400).json({ message: "Invalid email format" });
       }
     console.log(update.password)
+    const phoneRegex = /^[0-9]{10}$/;
+       if (update.phone && !(phoneRegex.test(update.phone))) {
+        return res.status(400).json({ message: "Invalid phone number" });
+       }
     
     const user=await User.findByIdAndUpdate(id,update,{new:true})
    
